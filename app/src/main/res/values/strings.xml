@@ -15,4 +15,6 @@
     <string name="bottom_sheet">Bottom Sheet</string>
     <string name="container_transformed_to_fragment">Container transformed to Fragment</string>
     <string name="shared_container_to_fragment">shared_container_to_fragment</string>
+    <string name="shared_container_to_activity">shared_container_to_activity</string>
+    <string name="container_transform_to_activity">Container transform to Activity</string>
 </resources>

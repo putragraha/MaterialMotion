@@ -39,6 +39,7 @@ class ComponentListFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setOnMbFragmentClicked()
+        setOnMbActivityClicked()
     }
 
     fun setMainNavigation(mainNavigation: MainNavigation) {
@@ -48,6 +49,12 @@ class ComponentListFragment: Fragment() {
     private fun setOnMbFragmentClicked() {
         binding.mbToFragment.setOnClickListener {
             mainNavigation.onContainerTransformFragmentClicked(binding.mbToFragment)
+        }
+    }
+
+    private fun setOnMbActivityClicked() {
+        binding.mbToActivity.setOnClickListener {
+            mainNavigation.onContainerTransformActivityClicked()
         }
     }
 }

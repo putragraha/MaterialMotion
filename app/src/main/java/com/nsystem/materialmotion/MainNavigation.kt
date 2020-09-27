@@ -10,4 +10,6 @@ import android.view.View
 interface MainNavigation {
 
     fun onContainerTransformFragmentClicked(view: View)
+
+    fun onContainerTransformActivityClicked()
 }

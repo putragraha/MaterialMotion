@@ -1,5 +1,6 @@
 package com.nsystem.materialmotion
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,12 @@ class MainActivity : AppCompatActivity(), MainNavigation {
             ContainerTransformFragment(),
             getString(R.string.shared_container_to_fragment),
             view
+        )
+    }
+
+    override fun onContainerTransformActivityClicked() {
+        startActivity(
+            Intent(this, ContainerTransformActivity::class.java)
         )
     }
 
