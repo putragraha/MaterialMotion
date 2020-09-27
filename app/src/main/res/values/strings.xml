@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MaterialMotion</string>
+    <string name="component_transform">Component Transform</string>
+    <string name="to_activity">To Activity</string>
 </resources>
