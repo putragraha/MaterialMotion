@@ -22,4 +22,5 @@
     <string name="fragment_transformed_with_shared_x_axis">Fragment transformed with Shared X Axis</string>
     <string name="activity_transformed_with_shared_y_axis">Activity Transformed with Shared Y Axis</string>
     <string name="view_with_shared_z_axis">View with Shared Z Axis</string>
+    <string name="fade_through_fragment_title">This fragment loaded using Fade Through Motion</string>
 </resources>
