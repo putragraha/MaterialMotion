@@ -1,11 +1,15 @@
 package com.nsystem.materialmotion
 
+import android.graphics.Color
 import android.os.Bundle
+import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.transition.MaterialElevationScale
+import com.google.android.material.transition.platform.MaterialArcMotion
+import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.nsystem.materialmotion.databinding.FragmentComponentListBinding
 
 
@@ -40,6 +44,8 @@ class ComponentListFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setOnMbFragmentClicked()
         setOnMbActivityClicked()
+        setOnMbViewClicked()
+        setOnClTransformViewClicked()
     }
 
     fun setMainNavigation(mainNavigation: MainNavigation) {
@@ -55,6 +61,40 @@ class ComponentListFragment: Fragment() {
     private fun setOnMbActivityClicked() {
         binding.mbToActivity.setOnClickListener {
             mainNavigation.onContainerTransformActivityClicked(binding.mbToActivity)
+        }
+    }
+
+    private fun setOnMbViewClicked() {
+        binding.mbToView.setOnClickListener {
+            transformView(binding.mbToView, binding.clViewTransform)
+        }
+    }
+
+    private fun setOnClTransformViewClicked() {
+        binding.clViewTransform.setOnClickListener {
+            transformView(binding.clViewTransform, binding.mbToView)
+        }
+    }
+
+    private fun transformView(sourceView: View, destinationView: View) {
+        TransitionManager.beginDelayedTransition(
+            binding.root,
+            getMaterialContainerTransform(sourceView, destinationView)
+        )
+        sourceView.visibility = View.GONE
+        destinationView.visibility = View.VISIBLE
+    }
+
+    private fun getMaterialContainerTransform(
+        sourceView: View,
+        destinationView: View
+    ): MaterialContainerTransform {
+        return MaterialContainerTransform().apply {
+            startView = sourceView
+            endView = destinationView
+            addTarget(endView)
+            pathMotion = MaterialArcMotion()
+            scrimColor = Color.TRANSPARENT
         }
     }
 }
