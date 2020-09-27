@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.nsystem.materialmotion.R
+import com.nsystem.materialmotion.databinding.ActivitySharedAxisBinding
 
 
 /**
@@ -16,13 +17,21 @@ class SharedAxisActivity: AppCompatActivity() {
 
         const val SOURCE_SHARED_AXIS_FRAGMENT_TAG = "SOURCE_SHARED_AXIS_FRAGMENT_TAG"
 
+        const val SHARED_X_AXIS_TRANSFORMED_FRAGMENT_TAG = "SHARED_X_AXIS_TRANSFORMED_FRAGMENT_TAG"
+
         const val MINIMUM_ACTIVE_FRAGMENT = 1
     }
 
+    private lateinit var binding: ActivitySharedAxisBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_shared_axis)
+
+        binding = ActivitySharedAxisBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         initSourceSharedAxisFragment()
+        setupButton()
     }
 
     override fun onBackPressed() {
@@ -35,6 +44,16 @@ class SharedAxisActivity: AppCompatActivity() {
 
     private fun initSourceSharedAxisFragment() {
         loadFragment(SourceSharedAxisFragment(), SOURCE_SHARED_AXIS_FRAGMENT_TAG)
+    }
+
+    private fun setupButton() {
+        setupMbXSharedAxis()
+    }
+
+    private fun setupMbXSharedAxis() {
+        binding.mbXSharedAxis.setOnClickListener {
+            loadFragment(SharedXAxisTransformedFragment(), SHARED_X_AXIS_TRANSFORMED_FRAGMENT_TAG)
+        }
     }
 
     private fun loadFragment(fragment: Fragment, fragmentTag: String) {

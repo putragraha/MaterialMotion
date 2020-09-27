@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.transition.MaterialSharedAxis
+import com.nsystem.materialmotion.databinding.FragmentSharedXAxisTransformedBinding
 import com.nsystem.materialmotion.databinding.FragmentSourceSharedAxisBinding
 
 
@@ -13,12 +14,12 @@ import com.nsystem.materialmotion.databinding.FragmentSourceSharedAxisBinding
  * @author Putra Nugraha (putra.nugraha@dana.id)
  * @version SourceSharedAxisFragment, v 0.0.1 27/09/20 16.06 by Putra Nugraha
  */
-class SourceSharedAxisFragment: Fragment() {
+class SharedXAxisTransformedFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false)
-        exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, true)
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true)
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, false)
     }
 
     override fun onCreateView(
@@ -26,6 +27,8 @@ class SourceSharedAxisFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return FragmentSourceSharedAxisBinding.inflate(inflater, container, false).root
+        return FragmentSharedXAxisTransformedBinding
+            .inflate(inflater, container, false)
+            .root
     }
 }
