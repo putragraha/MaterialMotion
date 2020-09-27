@@ -20,4 +20,5 @@
     <string name="container_transform_to_view">Container transform to View</string>
     <string name="motion_list">Motion List</string>
     <string name="fragment_transformed_with_shared_x_axis">Fragment transformed with Shared X Axis</string>
+    <string name="activity_transformed_with_shared_y_axis">Activity Transformed with Shared Y Axis</string>
 </resources>

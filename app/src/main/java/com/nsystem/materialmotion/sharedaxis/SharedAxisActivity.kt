@@ -1,8 +1,11 @@
 package com.nsystem.materialmotion.sharedaxis
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.nsystem.materialmotion.R
 import com.nsystem.materialmotion.databinding.ActivitySharedAxisBinding
 
@@ -25,9 +28,11 @@ class SharedAxisActivity: AppCompatActivity() {
     private lateinit var binding: ActivitySharedAxisBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = ActivitySharedAxisBinding.inflate(layoutInflater)
+
+        setupSharedAxisYTransformForActivity()
         super.onCreate(savedInstanceState)
 
-        binding = ActivitySharedAxisBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initSourceSharedAxisFragment()
@@ -42,17 +47,41 @@ class SharedAxisActivity: AppCompatActivity() {
         }
     }
 
+    private fun setupSharedAxisYTransformForActivity() {
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+        window.exitTransition = MaterialSharedAxis(MaterialSharedAxis.Y, true).apply {
+            // Only run the transition on the contents of this activity, excluding
+            // system bars or app bars if provided by the app’s theme.
+            addTarget(binding.flUnsharedElement)
+            excludeTarget(binding.mbYSharedAxis, false)
+        }
+        window.reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Y, false).apply {
+            addTarget(binding.flUnsharedElement)
+            excludeTarget(binding.mbYSharedAxis, false)
+        }
+    }
+
     private fun initSourceSharedAxisFragment() {
         loadFragment(SourceSharedAxisFragment(), SOURCE_SHARED_AXIS_FRAGMENT_TAG)
     }
 
     private fun setupButton() {
         setupMbXSharedAxis()
+        setupMbYSharedAxis()
     }
 
     private fun setupMbXSharedAxis() {
         binding.mbXSharedAxis.setOnClickListener {
             loadFragment(SharedXAxisTransformedFragment(), SHARED_X_AXIS_TRANSFORMED_FRAGMENT_TAG)
+        }
+    }
+
+    private fun setupMbYSharedAxis() {
+        binding.mbYSharedAxis.setOnClickListener {
+            startActivity(Intent(
+                this@SharedAxisActivity,
+                SharedAxisYTransformedActivity::class.java)
+            )
         }
     }
 

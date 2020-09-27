@@ -23,6 +23,8 @@
         <activity android:name=".containertransform.ContainerTransformedActivity"/>
 
         <activity android:name=".sharedaxis.SharedAxisActivity"/>
+
+        <activity android:name=".sharedaxis.SharedAxisYTransformedActivity"/>
     </application>
 
 </manifest>
