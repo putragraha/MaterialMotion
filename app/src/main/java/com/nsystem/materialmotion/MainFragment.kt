@@ -1,11 +1,13 @@
 package com.nsystem.materialmotion
 
 import android.os.Bundle
+import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.transition.MaterialFadeThrough
+import com.google.android.material.transition.platform.MaterialFade
 import com.nsystem.materialmotion.databinding.FragmentMainBinding
 
 
@@ -47,6 +49,8 @@ class MainFragment: Fragment() {
         setupMbContainerTransform()
         setupMbSharedAxis()
         setupMbFadeThrough()
+        setupMbFadeClicked()
+        setupClFadeableViewClicked()
     }
 
     private fun setupMbContainerTransform() {
@@ -65,5 +69,25 @@ class MainFragment: Fragment() {
         binding.mbFadeThrough.setOnClickListener {
             mainNavigation.onFadeThroughClicked()
         }
+    }
+
+    private fun setupMbFadeClicked() {
+        binding.mbFade.setOnClickListener {
+            if (binding.clFadeableView.visibility == View.GONE) {
+                fadeView(150L, View.VISIBLE)
+            } else {
+                fadeView(84L, View.GONE)
+            }
+        }
+    }
+
+    private fun setupClFadeableViewClicked( ) {
+        binding.clFadeableView.setOnClickListener { fadeView(84L, View.GONE) }
+    }
+
+    private fun fadeView(duration: Long, visibility: Int) {
+        val materialFade = MaterialFade().apply { this.duration = duration }
+        TransitionManager.beginDelayedTransition(binding.clFadeableView, materialFade)
+        binding.clFadeableView.visibility = visibility
     }
 }
