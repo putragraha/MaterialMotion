@@ -12,7 +12,7 @@ import com.google.android.material.transition.platform.MaterialContainerTransfor
 class MainActivity : AppCompatActivity(), MainNavigation {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setupTransformation()
+        setupContainerTransformToActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initComponentListFragment()
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), MainNavigation {
         supportFragmentManager.popBackStack()
     }
 
-    private fun setupTransformation() {
+    private fun setupContainerTransformToActivity() {
         window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
         setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
         window.sharedElementsUseOverlay = false
