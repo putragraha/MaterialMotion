@@ -13,8 +13,12 @@ class MainActivity : AppCompatActivity(), MainNavigation {
         initComponentListFragment()
     }
 
-    override fun onContainerTransformClicked(view: View) {
-        loadFragment(ContainerTransformFragment(), "shared_container_to_fragment", view)
+    override fun onContainerTransformFragmentClicked(view: View) {
+        loadFragment(
+            ContainerTransformFragment(),
+            getString(R.string.shared_container_to_fragment),
+            view
+        )
     }
 
     override fun onBackPressed() {

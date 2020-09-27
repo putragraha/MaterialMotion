@@ -47,7 +47,7 @@ class ComponentListFragment: Fragment() {
 
     private fun setOnMbFragmentClicked() {
         binding.mbToFragment.setOnClickListener {
-            mainNavigation.onContainerTransformClicked(binding.mbToFragment)
+            mainNavigation.onContainerTransformFragmentClicked(binding.mbToFragment)
         }
     }
 }

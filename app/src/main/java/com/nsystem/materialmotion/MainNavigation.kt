@@ -9,5 +9,5 @@ import android.view.View
  */
 interface MainNavigation {
 
-    fun onContainerTransformClicked(view: View)
+    fun onContainerTransformFragmentClicked(view: View)
 }

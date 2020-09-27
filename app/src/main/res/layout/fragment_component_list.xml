@@ -33,7 +33,7 @@
             style="@style/MaterialButton.Outlined.CustomIconed"
             android:layout_marginTop="6dp"
             android:text="@string/to_fragment"
-            android:transitionName="shared_container_to_fragment"
+            android:transitionName="@string/shared_container_to_fragment"
             app:icon="@drawable/ic_arrow_start"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
