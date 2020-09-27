@@ -10,8 +10,16 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.nsystem.materialmotion.R
 
-class ContainerTransformActivity : AppCompatActivity(),
-    ContainerTransformNavigation {
+class ContainerTransformActivity : AppCompatActivity(), ContainerTransformNavigation {
+
+    companion object {
+
+        const val COMPONENT_LIST_FRAGMENT_TAG = "COMPONENT_LIST_FRAGMENT_TAG"
+
+        const val CONTAINER_TRANSFORMED_FRAGMENT_TAG = "CONTAINER_TRANSFORMED_FRAGMENT_TAG"
+
+        const val MINIMUM_ACTIVE_FRAGMENT = 1
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setupContainerTransformToActivity()
@@ -24,7 +32,8 @@ class ContainerTransformActivity : AppCompatActivity(),
         loadFragment(
             ContainerTransformedFragment(),
             getString(R.string.shared_container_to_fragment),
-            view
+            view,
+            CONTAINER_TRANSFORMED_FRAGMENT_TAG
         )
     }
 
@@ -40,7 +49,11 @@ class ContainerTransformActivity : AppCompatActivity(),
     }
 
     override fun onBackPressed() {
-        supportFragmentManager.popBackStack()
+        if (supportFragmentManager.backStackEntryCount > MINIMUM_ACTIVE_FRAGMENT) {
+            supportFragmentManager.popBackStack()
+        } else {
+            finish()
+        }
     }
 
     private fun setupContainerTransformToActivity() {
@@ -51,19 +64,21 @@ class ContainerTransformActivity : AppCompatActivity(),
 
     private fun initComponentListFragment() {
         loadFragment(
-            ContainerTransformListFragment()
-                .apply {
-            setMainNavigation(this@ContainerTransformActivity)
-        })
+            ContainerTransformListFragment().apply {
+                setMainNavigation(this@ContainerTransformActivity)
+            },
+            fragmentTag = COMPONENT_LIST_FRAGMENT_TAG
+        )
     }
 
     private fun loadFragment(
         fragment: Fragment,
         sharedElementName: String = "",
-        view: View? = null
+        view: View? = null,
+        fragmentTag: String
     ) {
         supportFragmentManager.beginTransaction()
-            .addToBackStack(null)
+            .addToBackStack(fragmentTag)
             .replace(R.id.fl_component_list, fragment)
             .apply {
                 if (view != null && sharedElementName.isNotBlank()) {
