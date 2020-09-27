@@ -7,13 +7,23 @@
     android:layout_margin="12dp"
     tools:context=".main.MainActivity">
 
-    <FrameLayout
-        android:id="@+id/fl_fixed_y_component"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mb_y_shared_axis"
         android:layout_width="40dp"
         android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="40dp"
+        android:text="@string/label_y"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mb_x_shared_axis"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:text="@string/shared_x_axis"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <FrameLayout
         android:id="@+id/fl_fixed_x_component"
@@ -31,7 +41,7 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@id/fl_fixed_x_component"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/fl_fixed_y_component"
+        app:layout_constraintStart_toEndOf="@id/mb_y_shared_axis"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

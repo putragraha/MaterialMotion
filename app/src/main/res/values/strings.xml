@@ -2,4 +2,6 @@
     <string name="app_name">MaterialMotion</string>
     <string name="component_transform">Component Transform</string>
     <string name="to_activity">To Activity</string>
+    <string name="label_y">Y</string>
+    <string name="shared_x_axis">Shared X Axis</string>
 </resources>
