@@ -4,4 +4,13 @@
     <string name="to_activity">To Activity</string>
     <string name="label_y">Y</string>
     <string name="shared_x_axis">Shared X Axis</string>
+    <string name="to_fragment">To Fragment</string>
+    <string name="to_view">To View</string>
+    <string name="shared_axis">Shared Axis</string>
+    <string name="shared_z_axis">Shared Z Axis</string>
+    <string name="fade_through">Fade Through</string>
+    <string name="transform">Transform</string>
+    <string name="fade">Fade</string>
+    <string name="bonus">Bonus</string>
+    <string name="bottom_sheet">Bottom Sheet</string>
 </resources>

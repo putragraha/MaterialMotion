@@ -1,28 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/actv_component_transform"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/component_transform"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/mb_to_activity"
-        style="@style/MaterialButton.Outlined.CustomIconed"
-        android:layout_marginTop="6dp"
-        android:text="@string/to_activity"
-        app:icon="@drawable/ic_arrow_start"
-        app:layout_constraintTop_toBottomOf="@id/actv_component_transform"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_component_transform"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/component_transform"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mb_to_activity"
+            style="@style/MaterialButton.Outlined.CustomIconed"
+            android:layout_marginTop="6dp"
+            android:text="@string/to_activity"
+            app:icon="@drawable/ic_arrow_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actv_component_transform" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mb_to_fragment"
+            style="@style/MaterialButton.Outlined.CustomIconed"
+            android:layout_marginTop="6dp"
+            android:text="@string/to_fragment"
+            app:icon="@drawable/ic_arrow_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mb_to_activity" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mb_to_view"
+            style="@style/MaterialButton.Outlined.CustomIconed"
+            android:layout_marginTop="6dp"
+            android:text="@string/to_view"
+            app:icon="@drawable/ic_arrow_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mb_to_fragment" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_shared_axis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/shared_axis"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mb_to_view" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mb_shared_z"
+            style="@style/MaterialButton.Outlined.CustomIconed"
+            android:layout_marginTop="6dp"
+            android:text="@string/shared_z_axis"
+            app:icon="@drawable/ic_arrow_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actv_shared_axis" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_fade_through"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/fade_through"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mb_shared_z" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mb_fade_through"
+            style="@style/MaterialButton.Outlined.CustomIconed"
+            android:layout_marginTop="6dp"
+            android:text="@string/transform"
+            app:icon="@drawable/ic_arrow_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actv_fade_through" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_fade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/fade"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mb_fade_through" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mb_fade"
+            style="@style/MaterialButton.Outlined.CustomIconed"
+            android:layout_marginTop="6dp"
+            android:text="@string/transform"
+            app:icon="@drawable/ic_arrow_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actv_fade" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/bonus"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mb_fade" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mb_bottom_sheet"
+            style="@style/MaterialButton.Outlined.CustomIconed"
+            android:layout_marginTop="6dp"
+            android:text="@string/bottom_sheet"
+            app:icon="@drawable/ic_arrow_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actv_bonus" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
