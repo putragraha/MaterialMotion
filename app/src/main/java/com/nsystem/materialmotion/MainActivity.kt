@@ -1,14 +1,18 @@
 package com.nsystem.materialmotion
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 
 class MainActivity : AppCompatActivity(), MainNavigation {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setupTransformation()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initComponentListFragment()
@@ -22,14 +26,25 @@ class MainActivity : AppCompatActivity(), MainNavigation {
         )
     }
 
-    override fun onContainerTransformActivityClicked() {
+    override fun onContainerTransformActivityClicked(view: View) {
         startActivity(
-            Intent(this, ContainerTransformActivity::class.java)
+            Intent(this, ContainerTransformActivity::class.java),
+            ActivityOptions.makeSceneTransitionAnimation(
+                this,
+                view,
+                getString(R.string.shared_container_to_activity)
+            ).toBundle()
         )
     }
 
     override fun onBackPressed() {
         supportFragmentManager.popBackStack()
+    }
+
+    private fun setupTransformation() {
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+        window.sharedElementsUseOverlay = false
     }
 
     private fun initComponentListFragment() {

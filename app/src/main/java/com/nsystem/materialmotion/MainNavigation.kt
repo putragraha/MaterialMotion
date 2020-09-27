@@ -11,5 +11,5 @@ interface MainNavigation {
 
     fun onContainerTransformFragmentClicked(view: View)
 
-    fun onContainerTransformActivityClicked()
+    fun onContainerTransformActivityClicked(view: View)
 }
