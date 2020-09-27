@@ -15,6 +15,10 @@ import com.nsystem.materialmotion.databinding.FragmentSourceSharedAxisBinding
  */
 class SourceSharedAxisFragment: Fragment() {
 
+    private lateinit var binding: FragmentSourceSharedAxisBinding
+
+    private lateinit var navigation: SharedAxisNavigation
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false)
@@ -26,6 +30,19 @@ class SourceSharedAxisFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return FragmentSourceSharedAxisBinding.inflate(inflater, container, false).root
+        binding = FragmentSourceSharedAxisBinding.inflate(inflater, container, false)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.mbZSharedAxis.setOnClickListener {
+            navigation.onSharedAxisZClicked(binding.mbZSharedAxis)
+        }
+    }
+
+    fun setNavigation(navigation: SharedAxisNavigation) {
+        this.navigation = navigation
     }
 }

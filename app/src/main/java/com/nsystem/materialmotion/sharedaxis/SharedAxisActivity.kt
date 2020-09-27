@@ -2,6 +2,8 @@ package com.nsystem.materialmotion.sharedaxis
 
 import android.content.Intent
 import android.os.Bundle
+import android.transition.TransitionManager
+import android.view.View
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -14,7 +16,7 @@ import com.nsystem.materialmotion.databinding.ActivitySharedAxisBinding
  * @author Putra Nugraha (putra.nugraha@dana.id)
  * @version SharedAxisActivity, v 0.0.1 27/09/20 15.54 by Putra Nugraha
  */
-class SharedAxisActivity: AppCompatActivity() {
+class SharedAxisActivity: AppCompatActivity(), SharedAxisNavigation {
 
     companion object {
 
@@ -37,6 +39,7 @@ class SharedAxisActivity: AppCompatActivity() {
 
         initSourceSharedAxisFragment()
         setupButton()
+        setupOnClUnsharedElementClicked()
     }
 
     override fun onBackPressed() {
@@ -45,6 +48,17 @@ class SharedAxisActivity: AppCompatActivity() {
         } else {
             finish()
         }
+    }
+
+    override fun onSharedAxisZClicked(view: View) {
+        // Begin watching for changes in the View hierarchy.
+        TransitionManager.beginDelayedTransition(
+            binding.root,
+            MaterialSharedAxis(MaterialSharedAxis.Z, true)
+        )
+
+        // Make any changes to the hierarchy to be animated by the shared axis transition.
+        binding.clUnsharedElement.visibility = View.VISIBLE
     }
 
     private fun setupSharedAxisYTransformForActivity() {
@@ -62,7 +76,10 @@ class SharedAxisActivity: AppCompatActivity() {
     }
 
     private fun initSourceSharedAxisFragment() {
-        loadFragment(SourceSharedAxisFragment(), SOURCE_SHARED_AXIS_FRAGMENT_TAG)
+        loadFragment(
+            SourceSharedAxisFragment().apply { setNavigation(this@SharedAxisActivity) },
+            SOURCE_SHARED_AXIS_FRAGMENT_TAG
+        )
     }
 
     private fun setupButton() {
@@ -82,6 +99,19 @@ class SharedAxisActivity: AppCompatActivity() {
                 this@SharedAxisActivity,
                 SharedAxisYTransformedActivity::class.java)
             )
+        }
+    }
+
+    private fun setupOnClUnsharedElementClicked() {
+        binding.clUnsharedElement.setOnClickListener {
+            // Begin watching for changes in the View hierarchy.
+            TransitionManager.beginDelayedTransition(
+                binding.root,
+                MaterialSharedAxis(MaterialSharedAxis.Z, false)
+            )
+
+            // Make any changes to the hierarchy to be animated by the shared axis transition.
+            binding.clUnsharedElement.visibility = View.GONE
         }
     }
 

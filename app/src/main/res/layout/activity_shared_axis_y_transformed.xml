@@ -28,7 +28,6 @@
             android:layout_marginBottom="8dp"
             android:gravity="center_horizontal"
             android:text="@string/activity_transformed_with_shared_y_axis"
-            android:transitionName="@string/shared_container_to_fragment"
             app:layout_constraintBottom_toTopOf="@id/aciv_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
