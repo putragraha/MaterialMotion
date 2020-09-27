@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mb_bottom_sheet"
+        style="@style/MaterialButton.Outlined.CustomIconed"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/show_bottom_sheet"
+        app:icon="@drawable/ic_arrow_start" />
+
+    <include
+        android:id="@+id/view_bottom_sheet"
+        layout="@layout/view_bottom_sheet" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

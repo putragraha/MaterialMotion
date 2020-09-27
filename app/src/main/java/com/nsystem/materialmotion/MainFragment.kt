@@ -51,6 +51,7 @@ class MainFragment: Fragment() {
         setupMbFadeThrough()
         setupMbFadeClicked()
         setupClFadeableViewClicked()
+        setupOnMbBottomSheetClicked()
     }
 
     private fun setupMbContainerTransform() {
@@ -83,6 +84,12 @@ class MainFragment: Fragment() {
 
     private fun setupClFadeableViewClicked( ) {
         binding.clFadeableView.setOnClickListener { fadeView(84L, View.GONE) }
+    }
+
+    private fun setupOnMbBottomSheetClicked() {
+        binding.mbBottomSheet.setOnClickListener {
+            mainNavigation.onBottomSheetClicked()
+        }
     }
 
     private fun fadeView(duration: Long, visibility: Int) {

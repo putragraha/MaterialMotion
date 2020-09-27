@@ -17,4 +17,15 @@
         <item name="iconTint">@color/colorPrimary</item>
     </style>
 
+    <style name="ShapeableImageViewCircle">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeableImageViewCornerRounded">
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeBottomLeft">75dp</item>
+        <item name="cornerSizeTopRight">75dp</item>
+    </style>
+
 </resources>

@@ -11,4 +11,6 @@ interface MainNavigation {
     fun onSharedAxisClicked()
 
     fun onFadeThroughClicked()
+
+    fun onBottomSheetClicked()
 }

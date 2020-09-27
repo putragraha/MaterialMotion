@@ -25,6 +25,8 @@
         <activity android:name=".sharedaxis.SharedAxisActivity"/>
 
         <activity android:name=".sharedaxis.SharedAxisYTransformedActivity"/>
+
+        <activity android:name=".BottomSheetActivity"/>
     </application>
 
 </manifest>

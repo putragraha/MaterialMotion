@@ -45,6 +45,10 @@ class MainActivity : AppCompatActivity(), MainNavigation {
         loadFragment(FadeThroughFragment(), FADE_THROUGH_FRAGMENT_TAG)
     }
 
+    override fun onBottomSheetClicked() {
+        startActivity(Intent(this@MainActivity, BottomSheetActivity::class.java))
+    }
+
     private fun initMainFragment() {
         loadFragment(
             MainFragment().apply { setMainNavigation(this@MainActivity) },
