@@ -63,16 +63,8 @@ class SharedAxisActivity: AppCompatActivity(), SharedAxisNavigation {
 
     private fun setupSharedAxisYTransformForActivity() {
         window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
-        window.exitTransition = MaterialSharedAxis(MaterialSharedAxis.Y, true).apply {
-            // Only run the transition on the contents of this activity, excluding
-            // system bars or app bars if provided by the app’s theme.
-            addTarget(binding.flUnsharedElement)
-            excludeTarget(binding.mbYSharedAxis, false)
-        }
-        window.reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Y, false).apply {
-            addTarget(binding.flUnsharedElement)
-            excludeTarget(binding.mbYSharedAxis, false)
-        }
+        window.exitTransition = MaterialSharedAxis(MaterialSharedAxis.Y, true)
+        window.reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Y, false)
     }
 
     private fun initSourceSharedAxisFragment() {

@@ -26,14 +26,8 @@ class SharedAxisYTransformedActivity: AppCompatActivity() {
 
     private fun setupSharedAxisYTransformForActivity() {
         window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
-        window.enterTransition = MaterialSharedAxis(MaterialSharedAxis.Y, true).apply {
-            addTarget(binding.clUnsharedElement)
-            excludeTarget(binding.mbYSharedAxis, false)
-        }
-        window.exitTransition = MaterialSharedAxis(MaterialSharedAxis.Y, false).apply {
-            addTarget(binding.clUnsharedElement)
-            excludeTarget(binding.mbYSharedAxis, false)
-        }
+        window.enterTransition = MaterialSharedAxis(MaterialSharedAxis.Y, true)
+        window.returnTransition = MaterialSharedAxis(MaterialSharedAxis.Y, false)
 
         // Allow Activity A’s exit transition to play at the same time as this Activity’s
         // enter transition instead of playing them sequentially.
