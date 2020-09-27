@@ -25,15 +25,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/mb_container_transform"
-        style="@style/MaterialButton.Outlined.CustomIconed"
+    <FrameLayout
+        android:id="@+id/fl_unshared_element"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="12dp"
-        android:text="@string/shared_z_axis"
-        app:icon="@drawable/ic_arrow_start"
+        android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toTopOf="@id/mb_x_shared_axis"
-        app:layout_constraintStart_toEndOf="@id/mb_y_shared_axis"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/mb_y_shared_axis"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
