@@ -21,6 +21,8 @@
         <activity android:name=".containertransform.ContainerTransformActivity"/>
 
         <activity android:name=".containertransform.ContainerTransformedActivity"/>
+
+        <activity android:name=".sharedaxis.SharedAxisActivity"/>
     </application>
 
 </manifest>
