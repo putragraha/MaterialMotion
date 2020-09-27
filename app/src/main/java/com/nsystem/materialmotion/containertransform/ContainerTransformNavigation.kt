@@ -1,4 +1,4 @@
-package com.nsystem.materialmotion
+package com.nsystem.materialmotion.containertransform
 
 import android.view.View
 
@@ -7,7 +7,7 @@ import android.view.View
  * @author Putra Nugraha (putra.nugraha@dana.id)
  * @version MainNavigation, v 0.0.1 27/09/20 09.24 by Putra Nugraha
  */
-interface MainNavigation {
+interface ContainerTransformNavigation {
 
     fun onContainerTransformFragmentClicked(view: View)
 

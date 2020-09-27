@@ -1,4 +1,4 @@
-package com.nsystem.materialmotion
+package com.nsystem.materialmotion.containertransform
 
 import android.graphics.Color
 import android.os.Bundle
@@ -10,25 +10,25 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.transition.MaterialElevationScale
 import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
-import com.nsystem.materialmotion.databinding.FragmentComponentListBinding
+import com.nsystem.materialmotion.databinding.FragmentContainerTransformListBinding
 
 
 /**
  * @author Putra Nugraha (putra.nugraha@dana.id)
  * @version ComponentListFragment, v 0.0.1 26/09/20 23.48 by Putra Nugraha
  */
-class ComponentListFragment: Fragment() {
+class ContainerTransformListFragment: Fragment() {
 
-    private lateinit var binding: FragmentComponentListBinding
+    private lateinit var binding: FragmentContainerTransformListBinding
 
-    private lateinit var mainNavigation: MainNavigation
+    private lateinit var containerTransformNavigation: ContainerTransformNavigation
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentComponentListBinding.inflate(inflater, container, false)
+        binding = FragmentContainerTransformListBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -48,19 +48,19 @@ class ComponentListFragment: Fragment() {
         setOnClTransformViewClicked()
     }
 
-    fun setMainNavigation(mainNavigation: MainNavigation) {
-        this.mainNavigation = mainNavigation
+    fun setMainNavigation(containerTransformNavigation: ContainerTransformNavigation) {
+        this.containerTransformNavigation = containerTransformNavigation
     }
 
     private fun setOnMbFragmentClicked() {
         binding.mbToFragment.setOnClickListener {
-            mainNavigation.onContainerTransformFragmentClicked(binding.mbToFragment)
+            containerTransformNavigation.onContainerTransformFragmentClicked(binding.mbToFragment)
         }
     }
 
     private fun setOnMbActivityClicked() {
         binding.mbToActivity.setOnClickListener {
-            mainNavigation.onContainerTransformActivityClicked(binding.mbToActivity)
+            containerTransformNavigation.onContainerTransformActivityClicked(binding.mbToActivity)
         }
     }
 

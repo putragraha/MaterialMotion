@@ -1,4 +1,4 @@
-package com.nsystem.materialmotion
+package com.nsystem.materialmotion.containertransform
 
 import android.os.Bundle
 import android.view.View
@@ -6,18 +6,19 @@ import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
+import com.nsystem.materialmotion.R
 
 
 /**
  * @author Putra Nugraha (putra.nugraha@dana.id)
  * @version ContainerTransformActivity, v 0.0.1 27/09/20 12.47 by Putra Nugraha
  */
-class ContainerTransformActivity: AppCompatActivity() {
+class ContainerTransformedActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setupTransformation()
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_container_transform)
+        setContentView(R.layout.activity_container_transformed)
     }
 
     private fun setupTransformation() {

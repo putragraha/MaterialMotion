@@ -18,7 +18,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ContainerTransformActivity"/>
+        <activity android:name=".containertransform.ContainerTransformActivity"/>
+
+        <activity android:name=".containertransform.ContainerTransformedActivity"/>
     </application>
 
 </manifest>

@@ -18,4 +18,5 @@
     <string name="shared_container_to_activity">shared_container_to_activity</string>
     <string name="container_transform_to_activity">Container transform to Activity</string>
     <string name="container_transform_to_view">Container transform to View</string>
+    <string name="motion_list">Motion List</string>
 </resources>

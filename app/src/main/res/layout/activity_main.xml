@@ -1,47 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="12dp"
-    tools:context=".MainActivity">
+    android:padding="24dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/mb_y_shared_axis"
-        android:layout_width="40dp"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="40dp"
-        android:text="@string/label_y"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/mb_x_shared_axis"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="40dp"
-        android:text="@string/shared_x_axis"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <FrameLayout
-        android:id="@+id/fl_fixed_x_component"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <FrameLayout
-        android:id="@+id/fl_component_list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@id/fl_fixed_x_component"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/mb_y_shared_axis"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/actv_container_transform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/motion_list"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mb_container_transform"
+        style="@style/MaterialButton.Outlined.CustomIconed"
+        android:layout_marginTop="6dp"
+        android:text="@string/container_transform"
+        android:transitionName="@string/shared_container_to_activity"
+        app:icon="@drawable/ic_arrow_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/actv_container_transform" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mb_shared_axis"
+        style="@style/MaterialButton.Outlined.CustomIconed"
+        android:layout_marginTop="6dp"
+        android:text="@string/shared_axis"
+        android:transitionName="@string/shared_container_to_fragment"
+        app:icon="@drawable/ic_arrow_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mb_container_transform" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mb_fade_through"
+        style="@style/MaterialButton.Outlined.CustomIconed"
+        android:layout_marginTop="6dp"
+        android:text="@string/fade_through"
+        app:icon="@drawable/ic_arrow_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mb_shared_axis" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mb_fade"
+        style="@style/MaterialButton.Outlined.CustomIconed"
+        android:layout_marginTop="6dp"
+        android:text="@string/fade"
+        app:icon="@drawable/ic_arrow_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mb_fade_through" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/actv_bonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/bonus"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mb_fade" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mb_bottom_sheet"
+        style="@style/MaterialButton.Outlined.CustomIconed"
+        android:layout_marginTop="6dp"
+        android:text="@string/bottom_sheet"
+        app:icon="@drawable/ic_arrow_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/actv_bonus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
