@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,10 +9,10 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/actv_component_transform"
+            android:id="@+id/actv_container_transform"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/component_transform"
+            android:text="@string/container_transform"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,13 +26,14 @@
             app:icon="@drawable/ic_arrow_start"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/actv_component_transform" />
+            app:layout_constraintTop_toBottomOf="@id/actv_container_transform" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/mb_to_fragment"
             style="@style/MaterialButton.Outlined.CustomIconed"
             android:layout_marginTop="6dp"
             android:text="@string/to_fragment"
+            android:transitionName="shared_container_to_fragment"
             app:icon="@drawable/ic_arrow_start"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
