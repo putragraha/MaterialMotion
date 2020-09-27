@@ -63,8 +63,12 @@ class SharedAxisActivity: AppCompatActivity(), SharedAxisNavigation {
 
     private fun setupSharedAxisYTransformForActivity() {
         window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
-        window.exitTransition = MaterialSharedAxis(MaterialSharedAxis.Y, true)
-        window.reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Y, false)
+        window.exitTransition = MaterialSharedAxis(MaterialSharedAxis.Y, true).apply {
+            addTarget(binding.flUnsharedElement)
+        }
+        window.reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Y, false).apply {
+            addTarget(binding.flUnsharedElement)
+        }
     }
 
     private fun initSourceSharedAxisFragment() {

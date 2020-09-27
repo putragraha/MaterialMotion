@@ -20,7 +20,8 @@
         android:id="@+id/cl_unshared_element"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="50dp">
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="50dp">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="0dp"
