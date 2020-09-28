@@ -39,6 +39,7 @@ class MainFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupButton()
+        setupLottieAnimation()
     }
 
     fun setMainNavigation(mainNavigation: MainNavigation) {
@@ -52,6 +53,10 @@ class MainFragment: Fragment() {
         setupMbFadeClicked()
         setupClFadeableViewClicked()
         setupOnMbBottomSheetClicked()
+    }
+
+    private fun setupLottieAnimation() {
+        binding.animationView.playAnimation()
     }
 
     private fun setupMbContainerTransform() {

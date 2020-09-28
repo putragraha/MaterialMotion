@@ -14,4 +14,4 @@ Experimenting below stuffs:
     - Fade through
     - Fade in View
     - ShapeableImageView
-- Also experiment with Bottom Sheet
+- Also experiment with Bottom Sheet AND Lottie Animation
